@@ -1,0 +1,113 @@
+﻿@page
+@using RestCore.Models;
+@using RestCore.Controllers;
+@using RestCore;
+<title> Tree-View </title>
+@*<h1>BatchJobQueue</h1>*@
+
+<table border="1">
+    <tr>
+        <th>Designation</th>
+        <th>Value</th>
+    </tr>
+    <tr>
+        <td>AmountBatchJobs</td>
+        <td>@Program.batchJobQueue.AmountBatchJobs</td>
+    </tr>
+    <tr>
+        <td>NextFreePos</td>
+        <td>@Program.batchJobQueue.NextFreePos</td>
+    </tr>
+    <tr>
+        <td>Full</td>
+        <td>@Program.batchJobQueue.Full</td>
+    </tr>
+    <tr>
+        <td>BatchJobs:</td>
+    </tr>
+    @for (int i = 1; i <= Program.maxBatchJobs; i++)
+    {
+        <tr>
+            <td><blockquote>@i:  BatchSize</blockquote></td>
+            <td>@Program.batchJobQueue.BatchJobs[i - 1].BatchSize</td>
+        </tr>
+        <tr>
+            <td><blockquote>@i:  NextFreeWPos</blockquote></td>
+            <td>@Program.batchJobQueue.BatchJobs[i - 1].NextFreeWPos</td>
+        </tr>
+        <tr>
+            <td><blockquote>@i:  AmountFinishedW</blockquote></td>
+            <td>@Program.batchJobQueue.BatchJobs[i - 1].AmountFinishedW</td>
+        </tr>
+        <tr>
+            <td><blockquote>@i:  NextNotProcessedIdx</blockquote></td>
+            <td>@Program.batchJobQueue.BatchJobs[i - 1].NextNotProcessedIdx</td>
+        </tr>
+        <tr>
+            <td><blockquote>@i:  Mode</blockquote></td>
+            <td>@Program.batchJobQueue.BatchJobs[i - 1].Mode</td>
+        </tr>
+        <tr>
+            <td><blockquote>@i:  State</blockquote></td>
+            <td>@Program.batchJobQueue.BatchJobs[i - 1].state</td>
+        </tr>
+        <tr>
+            <td><blockquote>Workpieces:</blockquote></td>
+        </tr>
+        @for (int j = 1; j <= Program.maxWorkpieces; j++)
+        {
+            <tr>
+                <td><blockquote><blockquote>@j:  Color</blockquote></blockquote></td>
+                <td>@Program.batchJobQueue.BatchJobs[i - 1].Workpieces[j - 1].Color</td>
+            </tr>
+            <tr>
+                <td><blockquote><blockquote>@j:  LinePos</blockquote></blockquote></td>
+                <td>@Program.batchJobQueue.BatchJobs[i - 1].Workpieces[j - 1].LinePos</td>
+            </tr>
+            <tr>
+                <td><blockquote><blockquote>@j:  SortingLinePos</blockquote></blockquote></td>
+                <td>@Program.batchJobQueue.BatchJobs[i - 1].Workpieces[j - 1].SortingLinePos</td>
+            </tr>
+            <tr>
+                <td><blockquote><blockquote>@j:  State</blockquote></blockquote></td>
+                <td>@Program.batchJobQueue.BatchJobs[i - 1].Workpieces[j - 1].State</td>
+            </tr>
+            <tr>
+                <td><blockquote><blockquote>@j:  StartPos</blockquote></blockquote></td>
+                <td>@Program.batchJobQueue.BatchJobs[i - 1].Workpieces[j - 1].StartPos</td>
+            </tr>
+            <tr>
+                <td><blockquote><blockquote>@j:  EndPos</blockquote></blockquote></td>
+                <td>@Program.batchJobQueue.BatchJobs[i - 1].Workpieces[j - 1].EndPos</td>
+            </tr>
+            <tr>
+                <td><blockquote><blockquote>Format:</blockquote></blockquote></td>
+            </tr>
+            <tr>
+                <td><blockquote><blockquote><blockquote>@j:  FurEnabled</blockquote></blockquote></blockquote></td>
+                <td>@Program.batchJobQueue.BatchJobs[i - 1].Workpieces[j - 1].Formate[0].FurEnabled</td>
+            </tr>
+            <tr>
+                <td><blockquote><blockquote><blockquote>@j:  SawEnabled</blockquote></blockquote></blockquote></td>
+                <td>@Program.batchJobQueue.BatchJobs[i - 1].Workpieces[j - 1].Formate[0].SawEnabled</td>
+            </tr>
+            <tr>
+                <td><blockquote><blockquote><blockquote>@j:  ColorCheckEnabled</blockquote></blockquote></blockquote></td>
+                <td>@Program.batchJobQueue.BatchJobs[i - 1].Workpieces[j - 1].Formate[0].ColorCheckEnabled</td>
+            </tr>
+            <tr>
+                <td><blockquote><blockquote><blockquote>@j:  EjectEnabled</blockquote></blockquote></blockquote></td>
+                <td>@Program.batchJobQueue.BatchJobs[i - 1].Workpieces[j - 1].Formate[0].EjectEnabled</td>
+            </tr>
+            <tr>
+                <td><blockquote><blockquote><blockquote>@j:  FurDuration</blockquote></blockquote></blockquote></td>
+                <td>@Program.batchJobQueue.BatchJobs[i - 1].Workpieces[j - 1].Formate[0].FurDuration</td>
+            </tr>
+            <tr>
+                <td><blockquote><blockquote><blockquote>@j:  SawDuration</blockquote></blockquote></blockquote></td>
+                <td>@Program.batchJobQueue.BatchJobs[i - 1].Workpieces[j - 1].Formate[0].SawDuration</td>
+            </tr>
+        }
+    }
+</table>
+
